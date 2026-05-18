@@ -1,0 +1,5 @@
+payload:
+- DOMAIN-SUFFIX,claudecode.io
+- DOMAIN-SUFFIX,anthropic.com
+- DOMAIN-SUFFIX,claude.com
+- DOMAIN-WILDCARD,bedrock-runtime.*.amazonaws.com
