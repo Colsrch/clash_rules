@@ -95,6 +95,7 @@ rules:
 - DOMAIN-SUFFIX,openai.com,OpenAI
 
 - RULE-SET,claude_classical,Anthropic
+- RULE-SET,kiro_classical,Anthropic
 - RULE-SET,biliintl_domain,哔哩东南亚
 - RULE-SET,ehentai_domain,ehentai
 - RULE-SET,github_domain,默认
@@ -214,4 +215,7 @@ rule-providers:
   claude_classical:
     <<: *classical
     url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/claude.list"
+  kiro_classical:
+    <<: *classical
+    url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/kiro.list"
 

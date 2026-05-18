@@ -1,0 +1,2 @@
+payload:
+- DOMAIN-WILDCARD,q.*.amazonaws.com
