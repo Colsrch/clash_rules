@@ -1,7 +1,7 @@
 ######### 锚点 start #######
 # 策略组相关
-pr: &pr {type: select, proxies: [默认, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 美国, 美国自动选择, 其它地区, 全部节点, 自动选择, 直连]}
-pr_ai: &pr_ai {type: select, proxies: [默认, 日本, 日本自动选择, 美国, 美国自动选择, AI优化, AI优化自动选择, 台湾, 台湾自动选择, 新加坡, 新加坡自动选择]}
+pr: &pr {type: select, proxies: [默认, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择, 美国, 美国自动选择, 其它地区, 全部节点, 自动选择, 直连]}
+pr_ai: &pr_ai {type: select, proxies: [默认, 日本, 日本自动选择, 美国, 美国自动选择, AI优化, AI优化自动选择, 台湾, 台湾自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择]}
 
 #这里是订阅更新和延迟测试相关的
 p: &p {type: http, interval: 3600, exclude-filter: "流量|重置|到期|过期|最新|福利", health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 300}}
@@ -35,7 +35,7 @@ proxies:
     udp: true
 
 proxy-groups:
-- {name: 默认, type: select, proxies: [自动选择, 直连, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 美国, 美国自动选择, 其它地区, 全部节点], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Proxy.png"}
+- {name: 默认, type: select, proxies: [自动选择, 直连, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择, 美国, 美国自动选择, 其它地区, 全部节点], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Proxy.png"}
 - {name: Anthropic, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: OpenAI, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: Google, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Google_Search.png"}
@@ -50,24 +50,26 @@ proxy-groups:
 - {name: YouTube, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/YouTube.png"}
 - {name: NETFLIX, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Netflix.png"}
 - {name: Spotify, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Spotify.png"}
-- {name: 国内, type: select, proxies: [直连, 默认, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 美国, 美国自动选择, 其它地区, 全部节点, 自动选择], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/China_Map.png"}
+- {name: 国内, type: select, proxies: [直连, 默认, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择, 美国, 美国自动选择, 其它地区, 全部节点, 自动选择], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/China_Map.png"}
 - {name: 其他, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Final.png"}
   #分隔,下面是地区分组
 - {name: 香港, type: select, include-all: true, filter: "(?i)(?!直连)(港|hk|hongkong|hong kong)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/HK.png"}
 - {name: 台湾, type: select, include-all: true, filter: "(?i)(?!直连)(台|tw|taiwan)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/TW.png"}
-- {name: 日本, type: select, include-all: true, filter: "(?i)(?!直连)(日|jp|japan)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/JP.png"}
+- {name: 日本, type: select, include-all: true, filter: "(?i)(?!直连|jp-1|JP-1)(日|jp|japan)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/JP.png"}
 - {name: 美国, type: select, include-all: true, filter: "(?i)(?!直连)(?!.*(?:openai|chatgpt|gpt))(美|us|unitedstates|united states)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/US.png"}
 - {name: 新加坡, type: select, include-all: true, filter: "(?i)(?!直连)(新|sg|singapore)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/SG.png"}
-- {name: 其它地区, type: select, include-all: true, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|美|us|unitedstates|直连)).*", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Available.png"}
+- {name: 韩国, type: select, include-all: true, filter: "(?i)(?!直连)(韩|kr|southkorea)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/KR.png"}
+- {name: 其它地区, type: select, include-all: true, filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|韩|kr|southkorea|美|us|unitedstates|直连)).*", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Available.png"}
 - {name: 自动选择, type: url-test, include-all: true, exclude-filter: "(?i)直连", tolerance: 10, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Auto.png"}
 - {name: 全部节点, type: select, include-all: true, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Global.png"}
 - {name: AI优化, type: select, include-all: true, filter: "(?i)(?!直连)(openai|chatgpt|gpt|gemini)", icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 
 - {name: 香港自动选择,type: url-test, include-all: true, filter: "(?i)(?!直连)(?!.*(?:倍))(港|hk|hongkong|hong kong)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/HK.png"}
 - {name: 台湾自动选择,type: url-test, include-all: true, filter: "(?i)(?!直连)(台|tw|taiwan)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/TW.png"}
-- {name: 日本自动选择,type: url-test, include-all: true, filter: "(?i)(?!直连)(日|jp|japan)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/JP.png"}
+- {name: 日本自动选择,type: url-test, include-all: true, filter: "(?i)(?!直连|jp-1|JP-1)(日|jp|japan)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/JP.png"}
 - {name: 美国自动选择,type: url-test, include-all: true, filter: "(?i)(?!直连)(?!.*(?:openai|chatgpt|gpt))(美|us|unitedstates|united states)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/US.png"}
 - {name: 新加坡自动选择,type: url-test, include-all: true, filter: "(?i)(新|sg|singapore)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/SG.png"}
+- {name: 韩国自动选择, type: url-test, include-all: true, filter: "(?i)(?!直连)(韩|kr|southkorea)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/KR.png"}
 - {name: AI优化自动选择, type: url-test, include-all: true, filter: "(?i)(?!直连)(openai|chatgpt|gpt|gemini)", icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 
 rules:
@@ -85,6 +87,9 @@ rules:
 - RULE-SET,lancidr_ip,国内,no-resolve
 
 - DOMAIN,updates.cdn-apple.com,国内
+- DOMAIN,desk.idbi.ltd,国内
+- IP-CIDR,136.109.53.93/32,直连
+- IP-CIDR,34.94.229.233/32,直连
 
 - DOMAIN-SUFFIX,githubusercontent.com,默认
 - DOMAIN-SUFFIX,langchain.com,默认
