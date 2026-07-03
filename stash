@@ -1,10 +1,10 @@
 ######### 锚点 start #######
 # 策略组相关
 pr: &pr {type: select, proxies: [默认, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择, 美国, 美国自动选择, 其它地区, 全部节点, 自动选择, 直连]}
-pr_ai: &pr_ai {type: select, proxies: [默认, 日本, 日本自动选择, 美国, 美国自动选择, AI优化, AI优化自动选择, 台湾, 台湾自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择]}
+pr_ai: &pr_ai {type: select, proxies: [默认, 日本, 日本自动选择, 美国, 美国自动选择, AI优化, OpenAI自动选择, 台湾, 台湾自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择]}
 
 #这里是订阅更新和延迟测试相关的
-p: &p {type: http, interval: 3600, exclude-filter: "流量|重置|到期|过期|最新|福利", health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 300}}
+p: &p {type: http, interval: 3600, exclude-filter: "流量|重置|到期|过期|最新|福利|更新|超时|重启|订阅", health-check: {enable: true, url: "https://www.gstatic.com/generate_204", interval: 300}}
 ######### 锚点 end #######
 # url 里填写自己的订阅,名称不能重复
 # proxy-providers:
@@ -37,7 +37,7 @@ proxies:
 proxy-groups:
 - {name: 默认, type: select, proxies: [自动选择, 直连, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择, 美国, 美国自动选择, 其它地区, 全部节点], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Proxy.png"}
 - {name: Anthropic, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
-- {name: OpenAI, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
+- {name: OpenAI, type: select, include-all: true, proxies: [OpenAI自动选择], exclude-filter: "(?i)直连|港|hk|hongkong|hong kong", url: "https://chatgpt.com/backend-api/codex/responses", interval: 300, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: Google, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Google_Search.png"}
 - {name: GoogleCloud, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Dark/GCP.png"}
 - {name: Apple, <<: *pr, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Apple.png}
@@ -70,7 +70,7 @@ proxy-groups:
 - {name: 美国自动选择,type: url-test, include-all: true, filter: "(?i)(?!直连)(?!.*(?:openai|chatgpt|gpt))(美|us|unitedstates|united states)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/US.png"}
 - {name: 新加坡自动选择,type: url-test, include-all: true, filter: "(?i)(新|sg|singapore)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/SG.png"}
 - {name: 韩国自动选择, type: url-test, include-all: true, filter: "(?i)(?!直连)(韩|kr|southkorea)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/KR.png"}
-- {name: AI优化自动选择, type: url-test, include-all: true, filter: "(?i)(?!直连)(openai|chatgpt|gpt|gemini)", icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
+- {name: OpenAI自动选择, type: url-test, include-all: true, exclude-filter: "(?i)直连|港|hk|hongkong|hong kong", url: "https://chatgpt.com/backend-api/codex/responses", interval: 300, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 
 rules:
 - GEOIP,LAN,直连,no-resolve
