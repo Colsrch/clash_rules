@@ -38,9 +38,10 @@ proxy-groups:
 - {name: 默认, type: select, proxies: [自动选择, 直连, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择, 美国, 美国自动选择, 其它地区, 全部节点], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Proxy.png"}
 - {name: Anthropic, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: OpenAI, type: select, include-all: true, proxies: [OpenAI自动选择], exclude-filter: "(?i)直连|港|hk|hongkong|hong kong", url: "https://chatgpt.com/backend-api/codex/responses", interval: 300, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
+- {name: SaaS, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: Google, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Google_Search.png"}
 - {name: GoogleCloud, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Dark/GCP.png"}
-- {name: Apple, <<: *pr, icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Apple.png}
+- {name: Apple, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Apple.png"}
 - {name: Telegram, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Telegram.png"}
 - {name: Twitter, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Twitter.png"}
 - {name: ehentai, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Panda.png"}
@@ -74,6 +75,8 @@ proxy-groups:
 
 rules:
 - GEOIP,LAN,直连,no-resolve
+- RULE-SET,saas_direct_classical,直连
+- RULE-SET,saas_proxy_classical,SaaS
 - GEOIP,CN,直连,no-resolve
 - RULE-SET,private,直连
 - RULE-SET,private_cr_domain,直连
@@ -227,3 +230,9 @@ rule-providers:
   cutto_classical:
     <<: *classical
     url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/cutto.list"
+  saas_proxy_classical:
+    <<: *classical
+    url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/saas_proxy.list"
+  saas_direct_classical:
+    <<: *classical
+    url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/saas_direct.list"
