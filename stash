@@ -38,7 +38,9 @@ proxy-groups:
 - {name: 默认, type: select, proxies: [自动选择, 直连, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择, 美国, 美国自动选择, 其它地区, 全部节点], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Proxy.png"}
 - {name: Anthropic, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: OpenAI, type: select, include-all: true, proxies: [OpenAI自动选择], exclude-filter: "(?i)直连|港|hk|hongkong|hong kong", url: "https://chatgpt.com/backend-api/codex/responses", interval: 300, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
-- {name: SaaS, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
+- {name: Cutto, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
+- {name: 海外自定义直连组, type: select, proxies: [直连, 默认], icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
+- {name: 海外自定义代理组, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: Google, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Google_Search.png"}
 - {name: GoogleCloud, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Dark/GCP.png"}
 - {name: Apple, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Apple.png"}
@@ -75,8 +77,8 @@ proxy-groups:
 
 rules:
 - GEOIP,LAN,直连,no-resolve
-- RULE-SET,saas_direct_classical,直连
-- RULE-SET,saas_proxy_classical,SaaS
+- RULE-SET,overseas_custom_direct_classical,海外自定义直连组
+- RULE-SET,overseas_custom_proxy_classical,海外自定义代理组
 - GEOIP,CN,直连,no-resolve
 - RULE-SET,private,直连
 - RULE-SET,private_cr_domain,直连
@@ -104,7 +106,7 @@ rules:
 
 - RULE-SET,claude_classical,Anthropic
 - RULE-SET,kiro_classical,Anthropic
-- RULE-SET,cutto_classical,直连
+- RULE-SET,cutto_classical,Cutto
 - RULE-SET,biliintl_domain,哔哩东南亚
 - RULE-SET,ehentai_domain,ehentai
 - RULE-SET,github_domain,默认
@@ -230,9 +232,9 @@ rule-providers:
   cutto_classical:
     <<: *classical
     url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/cutto.list"
-  saas_proxy_classical:
+  overseas_custom_direct_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/saas_proxy.list"
-  saas_direct_classical:
+    url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/overseas_custom_direct.list"
+  overseas_custom_proxy_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/saas_direct.list"
+    url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/overseas_custom_proxy.list"
