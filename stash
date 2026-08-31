@@ -50,7 +50,9 @@ proxy-groups:
 - {name: 默认, type: select, proxies: [自动选择, 直连, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择, 美国, 美国自动选择, 其它地区, 全部节点], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Proxy.png"}
 - {name: Anthropic, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: OpenAI, type: select, include-all: true, proxies: [OpenAI自动选择], exclude-filter: "(?i)直连|港|hk|hongkong|hong kong", url: "https://chatgpt.com/backend-api/codex/responses", interval: 300, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
-- {name: SaaS, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
+- {name: Cutto, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
+- {name: 海外自定义直连组, type: select, proxies: [直连, 默认], icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
+- {name: 海外自定义代理组, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: Google, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Google_Search.png"}
 - {name: GoogleCloud, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Dark/GCP.png"}
 - {name: Apple, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Apple.png"}
@@ -64,6 +66,7 @@ proxy-groups:
 - {name: NETFLIX, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Netflix.png"}
 - {name: Spotify, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Spotify.png"}
 - {name: 国内, type: select, proxies: [直连, 默认, 香港, 香港自动选择, 台湾, 台湾自动选择, 日本, 日本自动选择, 新加坡, 新加坡自动选择, 韩国, 韩国自动选择, 美国, 美国自动选择, 其它地区, 全部节点, 自动选择], icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/China_Map.png"}
+- {name: 其他AI, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Final.png"}
 - {name: 其他, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Final.png"}
   #分隔,下面是地区分组
 - {name: 香港, type: select, include-all: true, filter: "(?i)(?!直连)(港|hk|hongkong|hong kong)", icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/HK.png"}
@@ -86,9 +89,11 @@ proxy-groups:
 - {name: OpenAI自动选择, type: url-test, include-all: true, exclude-filter: "(?i)直连|港|hk|hongkong|hong kong", url: "https://chatgpt.com/backend-api/codex/responses", interval: 300, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 
 rules:
+  - DOMAIN,desk.idbi.ltd,国内
+
   # Cutto
-  - RULE-SET,saas_direct_classical,直连
-  - RULE-SET,saas_proxy_classical,SaaS
+  - RULE-SET,overseas_custom_direct_classical,海外自定义直连组
+  - RULE-SET,overseas_custom_proxy_classical,海外自定义代理组
 
   # 本地程序、私有域名
   - RULE-SET,applications_cr,直连
@@ -120,8 +125,9 @@ rules:
   - RULE-SET,openai_classical,OpenAI
   - RULE-SET,claude_classical,Anthropic
   - RULE-SET,kiro_classical,Anthropic
+  - RULE-SET,cutto_classical,Cutto
   # 其他境外 AI/SaaS
-  - GEOSITE,category-ai-!cn,SaaS
+  - GEOSITE,category-ai-!cn,其他AI
 
   # Google 和 YouTube
   # YouTube 必须放在 google_cr 前面，防止先进入 Google
@@ -225,9 +231,12 @@ rule-providers:
   kiro_classical:
     <<: *classical
     url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/kiro.list"
-  saas_proxy_classical:
+  cutto_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/saas_proxy.list"
-  saas_direct_classical:
+    url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/cutto.list"
+  overseas_custom_direct_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/saas_direct.list"
+    url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/overseas_custom_direct.list"
+  overseas_custom_proxy_classical:
+    <<: *classical
+    url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/overseas_custom_proxy.list"
