@@ -184,59 +184,59 @@ rule-anchor:
 rule-providers:
   reject_cr:
     <<: *domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
   icloud_cr:
     <<: *domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
   apple_cr:
     <<: *domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
   google_cr:
     <<: *domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
   proxy_cr:
     <<: *domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
   direct_cr:
     <<: *domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
   private_cr:
     <<: *domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
   gfw_cr:
     <<: *domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
   tld-not-cn_cr:
     <<: *domain
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
   telegramcidr_cr:
     <<: *ipyaml
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
   cncidr_cr:
     <<: *ipyaml
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
   lancidr_cr:
     <<: *ipyaml
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
   applications_cr:
     <<: *classical
-    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
 #########################
   openai_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/ericz15/ios_rule_script/master/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml"
+    url: "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml"
   claude_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/claude.list"
+    url: "https://testingcf.jsdelivr.net/gh/Colsrch/clash_rules@main/rules/claude.list"
   kiro_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/Colsrch/clash_rules/refs/heads/main/rules/kiro.list"
+    url: "https://testingcf.jsdelivr.net/gh/Colsrch/clash_rules@main/rules/kiro.list"
   cutto_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/cutto.list"
+    url: "https://testingcf.jsdelivr.net/gh/cutto-ai/clash_rules@main/rules/cutto.list"
   overseas_custom_direct_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/overseas_custom_direct.list"
+    url: "https://testingcf.jsdelivr.net/gh/cutto-ai/clash_rules@main/rules/overseas_custom_direct.list"
   overseas_custom_proxy_classical:
     <<: *classical
-    url: "https://raw.githubusercontent.com/cutto-ai/clash_rules/refs/heads/main/rules/overseas_custom_proxy.list"
+    url: "https://testingcf.jsdelivr.net/gh/cutto-ai/clash_rules@main/rules/overseas_custom_proxy.list"
