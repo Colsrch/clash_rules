@@ -19,10 +19,10 @@ geo-auto-update: true
 geo-update-interval: 24
 
 geox-url:
-  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
-  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
-  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
-  asn: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"
+  geoip: "https://cdn.jsdmirror.com/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://cdn.jsdmirror.com/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://cdn.jsdmirror.com/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://cdn.jsdmirror.com/gh/MetaCubeX/meta-rules-dat@release/GeoLite2-ASN.mmdb"
 
 ipv6: false
 allow-lan: false
@@ -184,59 +184,59 @@ rule-anchor:
 rule-providers:
   reject_cr:
     <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/reject.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/reject.txt"
   icloud_cr:
     <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/icloud.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/icloud.txt"
   apple_cr:
     <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/apple.txt"
   google_cr:
     <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/google.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/google.txt"
   proxy_cr:
     <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/proxy.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/proxy.txt"
   direct_cr:
     <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/direct.txt"
   private_cr:
     <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/private.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/private.txt"
   gfw_cr:
     <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/gfw.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/gfw.txt"
   tld-not-cn_cr:
     <<: *domain
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/tld-not-cn.txt"
   telegramcidr_cr:
     <<: *ipyaml
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/telegramcidr.txt"
   cncidr_cr:
     <<: *ipyaml
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/cncidr.txt"
   lancidr_cr:
     <<: *ipyaml
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/lancidr.txt"
   applications_cr:
     <<: *classical
-    url: "https://testingcf.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/applications.txt"
+    url: "https://cdn.jsdmirror.com/gh/Loyalsoldier/clash-rules@release/applications.txt"
 #########################
   openai_classical:
     <<: *classical
-    url: "https://testingcf.jsdelivr.net/gh/ericz15/ios_rule_script/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml"
+    url: "https://cdn.jsdmirror.com/gh/ericz15/ios_rule_script/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml"
   claude_classical:
     <<: *classical
-    url: "https://testingcf.jsdelivr.net/gh/Colsrch/clash_rules@main/rules/claude.list"
+    url: "https://cdn.jsdmirror.com/gh/Colsrch/clash_rules@main/rules/claude.list"
   kiro_classical:
     <<: *classical
-    url: "https://testingcf.jsdelivr.net/gh/Colsrch/clash_rules@main/rules/kiro.list"
+    url: "https://cdn.jsdmirror.com/gh/Colsrch/clash_rules@main/rules/kiro.list"
   cutto_classical:
     <<: *classical
-    url: "https://testingcf.jsdelivr.net/gh/cutto-ai/clash_rules@main/rules/cutto.list"
+    url: "https://cdn.jsdmirror.com/gh/cutto-ai/clash_rules@main/rules/cutto.list"
   overseas_custom_direct_classical:
     <<: *classical
-    url: "https://testingcf.jsdelivr.net/gh/cutto-ai/clash_rules@main/rules/overseas_custom_direct.list"
+    url: "https://cdn.jsdmirror.com/gh/cutto-ai/clash_rules@main/rules/overseas_custom_direct.list"
   overseas_custom_proxy_classical:
     <<: *classical
-    url: "https://testingcf.jsdelivr.net/gh/cutto-ai/clash_rules@main/rules/overseas_custom_proxy.list"
+    url: "https://cdn.jsdmirror.com/gh/cutto-ai/clash_rules@main/rules/overseas_custom_proxy.list"
