@@ -224,7 +224,7 @@ rule-providers:
 #########################
   openai_classical:
     <<: *classical
-    url: "https://testingcf.jsdelivr.net/gh/blackmatrix7/ios_rule_script/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml"
+    url: "https://testingcf.jsdelivr.net/gh/ericz15/ios_rule_script/rule/Clash/OpenAI/OpenAI_No_Resolve.yaml"
   claude_classical:
     <<: *classical
     url: "https://testingcf.jsdelivr.net/gh/Colsrch/clash_rules@main/rules/claude.list"
