@@ -106,6 +106,7 @@ rules:
   - DOMAIN-SUFFIX,google-analytics.com,Google Analytics
   - DOMAIN-SUFFIX,analytics.google.com,Google Analytics
   - DOMAIN-SUFFIX,googletagmanager.com,Google Analytics
+  - DOMAIN,stats.g.doubleclick.net,Google Analytics
 
   # 广告拦截（保留 reject_cr 为主要规则，GEOSITE 作为补充）
   - RULE-SET,reject_cr,REJECT
