@@ -54,6 +54,7 @@ proxy-groups:
 - {name: 海外自定义直连组, type: select, proxies: [直连, 默认], icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: 海外自定义代理组, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/mini/AIA.png"}
 - {name: Google, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Google_Search.png"}
+- {name: Google Analytics, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Google.png"}
 - {name: GoogleCloud, <<: *pr_ai, icon: "https://raw.githubusercontent.com/Koolson/Qure/refs/heads/master/IconSet/Dark/GCP.png"}
 - {name: Apple, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Apple.png"}
 - {name: Telegram, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/mini/Telegram.png"}
@@ -100,6 +101,12 @@ rules:
   - RULE-SET,applications_cr,直连
   - RULE-SET,private_cr,直连
   - GEOSITE,private,直连
+
+  # Google Analytics 域名必须放在广告拦截规则之前
+  - DOMAIN-SUFFIX,google-analytics.com,Google Analytics
+  - DOMAIN-SUFFIX,analytics.google.com,Google Analytics
+  - DOMAIN-SUFFIX,googletagmanager.com,Google Analytics
+  - DOMAIN,stats.g.doubleclick.net,Google Analytics
 
   # 广告拦截（保留 reject_cr 为主要规则，GEOSITE 作为补充）
   - RULE-SET,reject_cr,REJECT
